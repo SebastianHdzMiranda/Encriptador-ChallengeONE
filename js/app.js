@@ -2,7 +2,8 @@ const textArea = document.querySelector('#textarea');
 const botones = document.querySelector('#botones');
 const contenidoVacio = document.querySelector('.resultado__vacio');
 const contenidoEntrada = document.querySelector('.resultado__entrada');
-
+const botonCopiar = document.querySelector('#btn-copiar');
+console.log(botonCopiar);
 /* Eventos 
 ---------------------------------------------------*/
 botones.addEventListener('click', mostrarMensaje);
@@ -18,7 +19,7 @@ function mostrarMensaje(e) {
     if (e.target.classList.contains('btn') && texto !== '') {
         if (/^[a-z\s]+$/.test(texto)) {
             
-            let contenedorTexto = document.querySelector('.resultado__transcription');
+            const contenedorTexto = document.querySelector('.resultado__transcription');
             
             if (e.target.classList.contains('btn--encriptar')) {
                 let encriptado = texto.replace(/[aeiou]/g, function(match){
@@ -41,10 +42,19 @@ function mostrarMensaje(e) {
                 contenedorTexto.innerHTML = `${encriptado}`;
             }
             if (e.target.classList.contains('btn--desencriptar')) {
-                let desencriptado = texto.replace(/ai/g, 'a').replace(/enter/g, 'e').replace(/imes/g, 'i').replace(/ober/g, 'o').replace(/ufat/g, 'u');
+                let desencriptado = texto.replace(/ai/g, 'a')
+                                        .replace(/enter/g, 'e')
+                                        .replace(/imes/g, 'i')
+                                        .replace(/ober/g, 'o')
+                                        .replace(/ufat/g, 'u');
+                
                 contenedorTexto.innerHTML = `${desencriptado}`;
             }
             mostrarContenido();
+            copiarContenido(contenedorTexto);  
+              
+            // resetea el nombre del btn a copiar
+            botonCopiar.textContent = 'Copiar'
         } else {
             alert('Solo letras minúsculas y sin acento');
         }
@@ -56,7 +66,14 @@ function mostrarContenido() {
     contenidoVacio.classList.add('resultado__vacio--desac');
 }
 
-
+function copiarContenido(contenido) {
+    botonCopiar.addEventListener('click', e =>{
+        e.preventDefault();
+        console.log(contenido.textContent);
+        navigator.clipboard.writeText(contenido.textContent);
+        botonCopiar.textContent = 'Copiado';
+    })
+}
 
 
 

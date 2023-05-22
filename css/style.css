@@ -2,11 +2,8 @@
 --------------------------------------------------- */
 :root{
     --fuentePrincipal: 'Abel', sans-serif;
-    --colorPrimario: #0A3871;
-    --colorPrimario: #0b305e;
+    --colorPrimario:  #063479;
     --colorSecundario: #E5E5E5;
-    --colorAqua:  #063479;
-    --blanco: #fff;
 }
 html{
     font-size: 62.5%;
@@ -23,7 +20,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    color: var(--blanco);
+    color: var(--colorSecundario);
     scroll-behavior: smooth;
 }
 a,p,textarea,textarea::placeholder{
@@ -67,11 +64,10 @@ a{
     width: min(120rem, 90%);
 }
 .btn{
-
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background-color: var(--blanco);
+    background-color: var(--colorSecundario);
     width: 100%;
     text-align: center;
     padding: 2% 5%;
@@ -79,6 +75,9 @@ a{
     color: var(--colorPrimario);
     transition: all .3s;
     font-weight: 700;
+}
+.btn:hover{
+    transform: scale(1.1);
 }
 @media (max-width: 1024px) {
     .btn{
@@ -158,14 +157,11 @@ a{
     width: 55%;
     height: 70%;
     top: 13%;
-    border: 4px solid var(--colorAqua);
+    border: 4px solid var(--colorPrimario);
     border: none;
     background: transparent;
-    color: var(--blanco);
+    color: var(--colorSecundario);
     resize: none;
-    /* backdrop-filter: blur(3px); */
-    border-radius: 10px;
-    /* padding: 2rem; */
     font-size: 2.5rem;
 }
 @media (max-width: 1280px) {
@@ -184,7 +180,7 @@ a{
     outline: none;
 }
 .campo__texto::placeholder{
-    color: var(--blanco);
+    color: var(--colorSecundario);
     font-size: 2.5rem;
 }
 .campo__info{
@@ -247,20 +243,17 @@ a{
     }
 }
 .btn--encriptar{
-    background-color: var(--colorAqua);
-    color: var(--blanco);
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
 }
 .btn--encriptar:hover{
-    background-color: #0c2c51;
-    transform: scale(1.1);
+    background-color: #002957;
 }
 .btn--desencriptar{
     background-color: var(--colorSecundario);
-    color: var(--colorPrimario);
 }
 .btn--desencriptar:hover{
-    transform: scale(1.1);
-    border: 2px solid var(--colorAqua);
+    border: 2px solid var(--colorPrimario);
 }
 
 
@@ -272,7 +265,7 @@ a{
     top: .3%;
     height: 100%;
     width: 25%;
-    background-color:var(--colorAqua);
+    background-color:var(--colorPrimario);
     padding: 2%;
     border-radius: 20px;
 }
@@ -374,6 +367,7 @@ a{
 }
 .btn-copiar{
     padding: 5% 0;
+    background-color: var(--colorSecundario);
     font-size: 2rem;
 }
 @media (max-width: 1024px) {
