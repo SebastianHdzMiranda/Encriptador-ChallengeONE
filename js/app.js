@@ -13,7 +13,7 @@ botones.addEventListener('click', mostrarMensaje);
 /* funciones 
 ---------------------------------------------------*/
 function mostrarMensaje(e) {
-    let texto = textArea.value;
+    let texto = textArea.value.toLowerCase();
     console.log(texto);
     e.preventDefault();
     if (e.target.classList.contains('btn') && texto !== '') {
